@@ -6,7 +6,7 @@ const getAllPoke = async () => {
 
     let arrayPoke = [];
 
-    await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=2&limit=2`)
+    await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=12&limit=12`)
     .then(async (response) => {
         let resultApi = response.data.results;
         

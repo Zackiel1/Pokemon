@@ -12,11 +12,12 @@ const getPokeById = async (idPokemon, source) => {
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`)
         .then(response => {
             const atributo = response.data;
+            
             return {
                 id: atributo.id,
                 name: atributo.name,
                 image: atributo.sprites.other.dream_world.front_default,
-                hp: atributo.stats[0].base_stat,
+                life: atributo.stats[0].base_stat,
                 attack: atributo.stats[1].base_stat,
                 defense: atributo.stats[2].base_stat,
                 speed: atributo.stats[5].base_stat,

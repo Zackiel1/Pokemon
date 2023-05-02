@@ -1,21 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useLocation, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import style from './Detail.module.css';
+import { useSelector } from 'react-redux';
 
 const Detail = () => {
 
-    const {detailId} = useParams();
-   
-    const [poke, setPoke] = useState({});
+    const params = useParams();
+    const namePoke = params.namePoke;
 
-    useEffect(async () => {
-       await axios.get(`http://localhost:3001/pokemons/${detailId}`)
-       .then(response => {
-            setPoke(response.data)
-       })
-    },[]);   
+    const {pokemonOnSearch, pokemon} = useSelector(state=>state);
+    let pokemons = pokemonOnSearch.concat(pokemon);
     
+    let poke = pokemons.filter(poke => poke.name === namePoke)[0]
+    
+      
     return(
         <div className={style.card}>
             <h4>id: {poke.id}</h4>
@@ -23,7 +22,7 @@ const Detail = () => {
             <br />
             <img src={poke.image} alt={`image of pokemon ${poke.name}`}/>
             <br />
-            <h3>Hp: {poke.hp}</h3>
+            <h3>Life: {poke.life}</h3>
             <h3>Attack: {poke.attack}</h3>
             <h3>Defense: {poke.defense}</h3>
             <h3>Speed: {poke.speed}</h3>

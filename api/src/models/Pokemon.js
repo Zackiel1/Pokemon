@@ -14,12 +14,12 @@ module.exports = (sequelize) => {
       unique: true
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB('long'),
       allowNull: false
     },
-    hp: {
+    life: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     attack: {
       type: DataTypes.INTEGER,
@@ -30,13 +30,16 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     speed: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
     height: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
     weight: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: true
     }
   },
   {

@@ -1,0 +1,9 @@
+export const GET_POKEMON = "GET_POKEMON";
+export const GET_POKE_BY_NAME = "GET_POKE_BY_NAME";
+export const ON_SEARCH = "ON_SEARCH";
+export const FILTER_TYPE = "FILTER_TYPE";
+export const ORDER_NAME = "ORDER_NAME";
+export const ORDER_ATTACK = "ORDER_ATTACK";
+export const ON_CLOSE = "ON_CLOSE";
+export const GET_ALL_POKE = "GET_ALL_POKE";
+export const FILTER_ORIGIN = "FILTER_ORIGIN";

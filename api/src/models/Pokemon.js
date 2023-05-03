@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       unique: true
     },
     image: {
-      type: DataTypes.BLOB('long'),
+      type: DataTypes.STRING,
       allowNull: false
     },
     life: {

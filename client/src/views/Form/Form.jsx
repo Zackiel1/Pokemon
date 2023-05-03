@@ -5,11 +5,9 @@ import style from './Form.module.css'
 
 const Form = () => {
 
-    const [hasErrors, setHasErrors] = useState(false);
-
     const [form, setForm] = useState({
         name: "",
-        image: {},
+        image: "",
         life: 0,
         attack: 0,
         defense: 0,
@@ -21,7 +19,7 @@ const Form = () => {
 
     const [error, setError] = useState({
         name: "",
-        image: {},
+        image: "",
         life: 0,
         attack: 0,
         defense: 0,
@@ -42,26 +40,6 @@ const Form = () => {
 
     const handlerSubmit = (event) => {
         event.preventDefault();
-
-        // try {
-        //     axios.post('http://localhost:3001/pokemons', form)
-        //         //.then(res => alert("Pokemon Creado"))
-        //         .then(res => {
-        //             setForm({
-        //                 name:"",
-        //                 image:{},
-        //                 life:0,
-        //                 attack:0,
-        //                 defense:0,
-        //                 speed:0,
-        //                 height:0,
-        //                 weight:0,
-        //                 type:""
-        //             })
-        //         })
-        // } catch (error) {
-        //     alert("error")
-        // }
 
 
         axios.post('http://localhost:3001/pokemons', form)
@@ -90,42 +68,51 @@ const Form = () => {
     return (
         <div className={style.divConten}> 
             <form onSubmit={handlerSubmit} className={style.formConten}>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Name: </label>
-                    <input type="text" name="name" value={form.name} onChange={handlerChange} />
+                    <input type="text" name="name" value={form.name} onChange={handlerChange} placeholder='insert name'/>
                     <label className={style.warning}>{error.name}</label>
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Image: </label>
-                    <input type="file" name="image" onChange={handlerChange} />
+                    <input type="text" name="image" onChange={handlerChange} placeholder='insert image url'/>
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Life: </label>
                     <input type="number" name="life" value={form.life} onChange={handlerChange} />
                     <label className={style.warning}>{error.life}</label>
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Attack: </label>
                     <input type="number" name="attack" value={form.attack} onChange={handlerChange} />
                     <label className={style.warning}>{error.attack}</label>
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Defense: </label>
                     <input type="number" name="defense" value={form.defense} onChange={handlerChange} />
                     <label className={style.warning}>{error.defense}</label>
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Speed: </label>
                     <input type="number" name="speed" value={form.speed} onChange={handlerChange} />
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Height: </label>
                     <input type="number" name="height" value={form.height} onChange={handlerChange} />
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Weight: </label>
                     <input type="number" name="weight" value={form.weight} onChange={handlerChange} />
                 </div>
+
                 <div className={style.cadaDivForm}>
                     <label className={style.namesForm}>Type: </label>
                     <select name="type" onClick={handlerChange}>
@@ -152,7 +139,9 @@ const Form = () => {
                         <option value="unknown">Unknown</option>
                     </select>
                     <label className={style.warning}>{error.type}</label>
+
                 </div>
+
                 <button type="submit" >Submit</button>
             </form>
         </div>

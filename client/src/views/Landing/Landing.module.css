@@ -1,0 +1,59 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.containerLanding{
+    display: flex;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../../img/Pokeball\ wallpaper.jpg');
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.link{
+    text-decoration: none;
+    list-style: none;
+    height: 60px;
+    font-size: 30px;
+    color: #ff2222
+}
+
+.containerLink{
+   position: absolute;
+   bottom: 100px;
+   padding: 12px;
+   border: 2px solid #ff2222;
+   border-radius: 15px;
+   background-color: rgb(19, 19, 19);;
+}
+
+.containerLink:hover{
+    padding: 14px;
+    box-shadow: 5px 5px rgb(19, 19, 19);
+}
+
+h1 {
+    font-size: 100px;
+    color: rgb(19, 19, 19);
+    text-shadow:
+      -1.5px -1.5px 0 #ff2222,
+      1.5px -1.5px 0 #ff2222,
+      -1.5px 1.5px 0 #ff2222,
+      1.5px 1.5px 0 #ff2222;
+    
+  }
+
+  h1:hover{
+    text-shadow: 
+    -2px -2px 0 #ff2222,
+    2px -2px 0 #ff2222,
+    -2px 2px 0 #ff2222,
+    2px 2px 0 #ff2222;
+    
+}

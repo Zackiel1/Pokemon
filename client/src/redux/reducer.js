@@ -1,4 +1,4 @@
-import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, GET_ALL_POKE, FILTER_ORIGIN } from "./index";
+import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, FILTER_ORIGIN } from "./index";
 
 const inicialState = {
     pokemon: [],
@@ -123,12 +123,6 @@ const reducer = (state = inicialState, action) => {
                 }
             }
 
-        case GET_ALL_POKE:
-            return{
-                ...state,
-                pokemon: state.pokemon.concat(action.payload)
-            }    
-        
         default:
             return { ...state }
     }

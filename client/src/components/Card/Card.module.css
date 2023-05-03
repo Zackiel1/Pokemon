@@ -1,14 +1,37 @@
-.card{
-    border: 1px solid black;
+.contenCard{
+    border: 1px solid #ff2222;
     border-radius: 15px;
     height: fit-content;
     width: fit-content;
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
-    background-color: turquoise;
+    background-color: rgb(26, 26, 26);
+}
+.contenCard:hover{
+    box-shadow: 2px 2px #ff2222;
 }
 
 img{
+    margin-top: 10px;
+    margin-bottom: 10px;
     height: 160px;
     width: 160px;
+}
+
+.name{
+    text-decoration: none;
+    color: #ff2222;
+}
+
+.name:hover{
+    text-shadow: 1px 1px 5px rgb(165, 164, 164);
+}
+
+.type{
+    color: rgb(231, 231, 231);
+}
+
+.id{
+    margin-top: 10px;
+    color: rgb(231, 231, 231); 
 }

@@ -18,13 +18,13 @@ const Nav = (props) => {
     
     return(
         <div className={style.navContainer}>
-            <Link to='/home'>Home</Link>
-            <Link to='/createPokemon'>Create Pokemon</Link>
-            <Link to='/AllPokemons'>All Pokemons</Link>  
+            <Link to='/home' className={style.link}>Home</Link>
+            <Link to='/createPokemon' className={style.link}>Create Pokemon</Link>
+            <Link to='/AllPokemons' className={style.link}>All Pokemons</Link>  
 
             <div>
-                <input name='searchBar' type="search" onChange={handlerChange}/>  
-                <button onClick={() => dispatch(onSearch(name.toLocaleLowerCase()))}>Buscar</button>  
+                <input name='searchBar' type="search" onChange={handlerChange} placeholder='Insert name or id'/>  
+                <button onClick={() => dispatch(onSearch(name.toLocaleLowerCase()))}>Search</button>  
             </div>  
         </div>
     )

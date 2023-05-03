@@ -16,20 +16,23 @@ const Detail = () => {
     
       
     return(
-        <div className={style.card}>
-            <h4>id: {poke.id}</h4>
-            <h2>Name: {poke.name}</h2>
-            <br />
-            <img src={poke.image} alt={`image of pokemon ${poke.name}`}/>
-            <br />
-            <h3>Life: {poke.life}</h3>
-            <h3>Attack: {poke.attack}</h3>
-            <h3>Defense: {poke.defense}</h3>
-            <h3>Speed: {poke.speed}</h3>
-            <h3>Height: {poke.height}</h3>
-            <h3>Weight: {poke.weight}</h3>
-            <h3>Type: {poke.type}</h3>
+        <div className={style.contenDetail}>
+            <div className={style.contenCard}>
+                <h4 className={style.id}># {poke.id}</h4>
+                <h2 className={style.name}>{poke.name}</h2>
+                <br />
+                <img src={poke.image} alt={`image of pokemon ${poke.name}`}/>
+                <br />
+                <h3 className={style.stat}>Life: {poke.life}</h3>
+                <h3 className={style.stat}>Attack: {poke.attack}</h3>
+                <h3 className={style.stat}>Defense: {poke.defense}</h3>
+                <h3 className={style.stat}>Speed: {poke.speed}</h3>
+                <h3 className={style.stat}>Height: {poke.height}</h3>
+                <h3 className={style.stat}>Weight: {poke.weight}</h3>
+                <h3 className={style.stat}>Type: {poke.type}</h3>
+            </div>
         </div>
+        
     )
 }
 

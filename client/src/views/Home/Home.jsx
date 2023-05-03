@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Home.module.css'
 import CardsContainer from '../../components/CardsContainer/CardsContainer';
 import { useDispatch } from 'react-redux';
 import { filterType, orderName, orderAttack, filterOrigin } from '../../redux/actions';
@@ -24,9 +25,9 @@ const Home = (props) => {
     }
 
     return(
-        <div>
-            <h3>Soy el Home</h3>
-            <div>
+        <div className={style.contenHome}>
+            <div className={style.contenSelect}>
+            <div className={style.filter}>
                 <label>Filter By: </label>
                 <select name="Origin" onClick={handlerSelect}>
                     <option value="All Origin">All Origin</option>
@@ -57,7 +58,7 @@ const Home = (props) => {
                     <option value="unknown">Unknown</option>
                 </select>
             </div>
-            <div>
+            <div className={style.order}>
                 <label>Order By: </label>
                 <select name="Name" onClick={handlerSelect}>
                     <option value="">Name</option>
@@ -69,6 +70,7 @@ const Home = (props) => {
                     <option value="upward">Hight-Low</option>
                     <option value="descending">Low-Hight</option>
                 </select>
+            </div>
             </div>
 
             <CardsContainer />

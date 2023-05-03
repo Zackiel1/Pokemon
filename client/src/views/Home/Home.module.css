@@ -1,0 +1,32 @@
+.contenHome{
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../../img/desenfoque-lujo-abstracto-degradado-gris-oscuro-negro-utilizado-como-pared-estudio-fondo-exhibir-sus-productos_1258-63997.avif');
+}
+
+.contenSelect{
+    display: flex;
+    justify-content: center;
+}
+
+.filter{
+    margin-top: 14px;
+    text-shadow:
+      -.5px -.5px 0 #ff2222,
+      .5px -.5px 0 #ff2222,
+      -.5px .5px 0 #ff2222,
+      .5px .5px 0 #ff2222;
+
+}
+
+.order{
+    margin-top: 14px;
+    margin-left: 17px;
+    text-shadow:
+      -.5px -.5px 0 #ff2222,
+      .5px -.5px 0 #ff2222,
+      -.5px .5px 0 #ff2222,
+      .5px .5px 0 #ff2222;
+}

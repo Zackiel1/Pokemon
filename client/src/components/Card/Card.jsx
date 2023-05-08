@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
     
     const { handlerOnClose } = props
+    
+    let types = props.type.map(t => t)
 
     return(
         <div className={style.contenCard}>
@@ -17,17 +19,13 @@ const Card = (props) => {
             
             <img src={props.image} alt={`image of pokemon ${props.name}`} />
 
-            <div>
-                {
-                handlerOnClose ?  
+            <div>    
                 <Link className={style.name} to={`/detail/${props.name}`}>
                     <h2>{props.name}</h2>
-                </Link> :
-                <h2 className={style.name} >{props.name}</h2>
-                }
+                </Link>
             </div>
             
-            <h3 className={style.type}>Type: {props.type}</h3>
+            <h3 className={style.type}>Type: {types[0]} {types[1]}</h3>
         </div>
     )
 }

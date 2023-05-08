@@ -18,7 +18,7 @@ const getPokeByName = async (name) => {
             speed: p.data.stats[5].base_stat,
             height: p.data.height,
             weight: p.data.weight,
-            type: p.data.types[0].type.name
+            type: p.data.types.map(t => t.type.name)
       })
             
     }).catch(error => error)

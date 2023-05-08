@@ -1,87 +1,91 @@
-import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, FILTER_ORIGIN } from "./index";
+import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, FILTER_ORIGIN, GET_TYPES, GET_NEXT, GET_PREV } from "./index";
 
 const inicialState = {
     pokemon: [],
-    pokemonOnSearch: [],
     copyAllPokemon: [],
-    urls: {}
+    pokemonOnSearch: [],
+    allTypes: [],
+    copyPokemonOnSearch: [],
+    //urlNextPrev: []
 }
-
+//// arreglar, sale que no es iterable porque en pokemon llega es un objeto
 const reducer = (state = inicialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case GET_POKEMON:
-          
+            
             return {
-                ...state, 
+                ...state,
                 pokemon: action.payload.data.results,
-                urls: action.payload.data.urls
-                
+                copyAllPokemon: action.payload.data.results,
+                //urlNextPrev: action.payload.data
             }
 
         case ON_SEARCH:
-            return{
-                ...state, 
-                copyAllPokemon: state.pokemonOnSearch.concat(action.payload),
+            return {
+                ...state,
+                copyPokemonOnSearch: state.pokemonOnSearch.concat(action.payload),
                 pokemonOnSearch: state.pokemonOnSearch.concat(action.payload)
             }
-   
-        case FILTER_TYPE:
-            let copyPokemons = [...state.pokemonOnSearch];
 
-            if(action.payload === "All types"){
-                return{
+        case FILTER_TYPE:
+            let copyPokemons = [...state.copyAllPokemon];
+            
+            if (action.payload === "All types") {
+                
+                return {
                     ...state,
-                    pokemonOnSearch: state.copyAllPokemon
+                    pokemon: [...state.copyAllPokemon]
                 }
             }
             return {
                 ...state,
-                pokemonOnSearch: copyPokemons.filter((poke) => {
-                    return poke.type === action.payload;
+                pokemon: copyPokemons.filter((poke) => {
+                    return poke.type[0] === action.payload || poke.type[1] === action.payload;
                 })
             }
 
         case ORDER_NAME:
-            let copy = [...state.pokemonOnSearch];
-            if(action.payload === "upward"){
+            let copy = [...state.pokemon];
+
+            if (action.payload === "upward") {
                 //ordena de manera acendente
                 let orderPokemon = copy.sort((a, b) => a.name.localeCompare(b.name))
-                
-                return{
+
+                return {
                     ...state,
-                    pokemonOnSearch: orderPokemon
-                }   
+                    pokemon: orderPokemon
+                }
             }
-            if(action.payload === "descending"){
+            if (action.payload === "descending") {
                 //ordena de manera decendente
                 let orderPokemon = copy.sort((a, b) => b.name.localeCompare(a.name))
-                
-                return{
+
+                return {
                     ...state,
-                    pokemonOnSearch: orderPokemon
-                }   
+                    pokemon: orderPokemon
+                }
             }
 
         case ORDER_ATTACK:
-            let copyA = [...state.pokemonOnSearch];
+            let copyA = [...state.pokemon];
 
-            if(action.payload === "upward"){
+            if (action.payload === "upward") {
                 //ordena de manera acendente
                 let orderPokemon = copyA.sort((a, b) => b.attack - a.attack)
-                
-                return{
+
+                return {
                     ...state,
-                    pokemonOnSearch: orderPokemon
-                }   
+                    pokemon: orderPokemon
+                }
             }
-            if(action.payload === "descending"){
+            if (action.payload === "descending") {
                 //ordena de manera decendente
                 let orderPokemon = copyA.sort((a, b) => a.attack - b.attack)
-                
-                return{
+
+                return {
                     ...state,
-                    pokemonOnSearch: orderPokemon
-                }   
+                    pokemon: orderPokemon
+                }
             }
 
         case ON_CLOSE:
@@ -89,39 +93,62 @@ const reducer = (state = inicialState, action) => {
             let copyOnSearch = [...state.pokemonOnSearch];
 
             copyOnSearch = copyOnSearch.filter((char) => char.id !== action.payload)
-        
+
             return {
                 ...state,
                 pokemonOnSearch: copyOnSearch,
                 copyAllPokemon: copyOnSearch
             }
-        
-        case FILTER_ORIGIN:
-            
-            let copyPoke = [...state.copyAllPokemon];
 
-            if(action.payload === "All Origin"){
-                return{
+        case FILTER_ORIGIN:
+
+            let copyPoke = [...state.copyPokemonOnSearch];
+
+            if (action.payload === "All Origin") {
+                return {
                     ...state,
-                    pokemonOnSearch: state.copyAllPokemon
+                    pokemonOnSearch: state.copyPokemonOnSearch
                 }
             }
 
-            if(action.payload === "Api"){
+            if (action.payload === "Api") {
 
-                return{
+                return {
                     ...state,
                     pokemonOnSearch: copyPoke.filter(a => !isNaN(a.id))
                 }
             }
 
-            if(action.payload === "DataBase"){
-                
-                return{
+            if (action.payload === "DataBase") {
+
+                return {
                     ...state,
                     pokemonOnSearch: copyPoke.filter(a => isNaN(a.id))
                 }
             }
+
+        case GET_TYPES:
+
+            return {
+                ...state,
+                allTypes: action.payload
+            }
+
+        // case GET_NEXT:
+
+        //     return {
+        //         ...state,
+        //         pokemon: action.payload.data.results,
+        //         urlNextPrev: action.payload.data
+        //     }
+
+        // case GET_PREV:
+
+        //     return {
+        //         ...state,
+        //         pokemon: action.payload.data.results,
+        //         urlNextPrev: action.payload.data
+        //     }
 
         default:
             return { ...state }

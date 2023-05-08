@@ -7,3 +7,6 @@ export const ORDER_ATTACK = "ORDER_ATTACK";
 export const ON_CLOSE = "ON_CLOSE";
 export const GET_ALL_POKE = "GET_ALL_POKE";
 export const FILTER_ORIGIN = "FILTER_ORIGIN";
+export const GET_TYPES = "GET_TYPES";
+export const GET_NEXT = "GET_NEXT";
+export const GET_PREV = "GET_PREV";

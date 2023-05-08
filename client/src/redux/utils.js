@@ -1,11 +1,11 @@
-const axios = require('axios');
+import axios from "axios"
 
-const getAllPoke = async () => {
+export const getAllPokes = async (url) => {
 
     let arrayPoke = [];
     let result = {};
-    
-    await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100`)
+
+    await axios.get(`${url}`)
     .then(async (response) => {
         
         let resultApi = response.data.results;
@@ -37,8 +37,6 @@ const getAllPoke = async () => {
             
         }).catch(error => error)
     }).catch(error => error)
-        
+    
     return result;
 }
-
-module.exports = getAllPoke;

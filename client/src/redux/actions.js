@@ -1,12 +1,32 @@
 import axios from 'axios';
-import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, GET_ALL_POKE, FILTER_ORIGIN } from "./index";
+import { GET_POKEMON, ON_SEARCH, FILTER_TYPE, ORDER_NAME, ORDER_ATTACK, ON_CLOSE, GET_ALL_POKE, FILTER_ORIGIN, GET_TYPES, GET_NEXT, GET_PREV } from "./index";
+
 
 export const getPokemon = () => {
     return async function(dispatch){
-        const pokeAPI = (await axios.get('http://localhost:3001/allPokemon'));
-        dispatch({ type: GET_POKEMON, payload: pokeAPI});
+        const data = (await axios.get('http://localhost:3001/pokemons'));
+        
+        dispatch({ type: GET_POKEMON, payload: data});
     }
 };
+
+// export const getNext = (url) => {
+//     return async function(dispatch){
+//         let data = await getAllPokes(url);
+//         data.data = data;
+
+//         dispatch({ type: GET_NEXT, payload: data})      
+//     }
+// }
+
+// export const getPrev = (url) => {
+//     return async function(dispatch){
+//         let data = await getAllPokes(url);
+//         data.data = data;
+
+//         dispatch({ type: GET_PREV, payload: data})          
+//     }
+// }
 
 export const onSearch = (name) => {
     return async function(dispatch){
@@ -14,6 +34,15 @@ export const onSearch = (name) => {
         .then(response => {
             dispatch({ type: ON_SEARCH, payload: response.data})
         }).catch(err => window.alert('Id o Name no exist'))
+    }
+}
+
+export const getTypes = () => {
+    return async function(dispatch){
+        await axios.get('http://localhost:3001/types')
+        .then(response => {
+            dispatch({ type: GET_TYPES, payload: response.data})
+        }).catch(err => err)
     }
 }
 

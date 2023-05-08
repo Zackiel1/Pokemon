@@ -4,9 +4,9 @@ function validations (userData) {
     const regexName = /^[a-zA-Z]{3,}$/; 
 
     if(!userData.name){   
-        error.name = 'Por favor, complete este campo.';
+        error.name = 'Please fill this field.';
     }else if(!regexName.test(userData.name)){
-        error.name = 'solo se aceptan letras aA-zZ y mayor de 2 caracteres.';
+        error.name = 'Only letters aA-zZ and greater than 2 characters are accepted.';
     }
 
     if(userData.life < 1 || userData.life > 400) error.life = 'min: 1 - max: 400.';

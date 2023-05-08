@@ -25,6 +25,9 @@ const getPokeHandlers = async (req, res) => {
             return
         }
 
+        let allPokemons = await getAllPoke();
+        return res.status(200).json(allPokemons)
+
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -33,13 +36,13 @@ const getPokeHandlers = async (req, res) => {
 const getAllPokeHandlers = async (req, res) => {
 
 
-    try {
-       const allPokemon = await getAllPoke();
+    // try {
+    //    const allPokemon = await getAllPoke();
     
-        res.status(200).json(allPokemon);
-    } catch (error) {
-        res.status(400).json({ error: error.message })
-    }
+    //     res.status(200).json(allPokemon);
+    // } catch (error) {
+    //     res.status(400).json({ error: error.message })
+    // }
 }
 
 //--------------- holaaaaaaaaa 
@@ -54,7 +57,8 @@ const postPokeHandlers = async (req, res) => {
             speed,
             height,
             weight,
-            type } = req.body;
+            type
+                 } = req.body;
 
         const newPokemon = await createPoke(name, image, life, attack, defense, speed, height, weight, type);
         

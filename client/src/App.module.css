@@ -1,78 +1,16 @@
-.contenCard{
-    font-size: 14px;
-    min-width: 115px;
-    max-width: 115px;
-    height: 190px;
-    border-radius: 5px;
-    background-color: rgb(238, 237, 237);
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    margin: 5px;
-    box-shadow: 2px 2px 10px rgba(107,39,187);
-    border-radius: 15px;
-    
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-img{
-    height: 80px;
-    width: 90px;
-    align-self: center;
-    bottom: 7px;
-    position: relative;
-    transition: width 2s;
-}
-
-.contenCard:hover {
-    box-shadow: 2.8px 2.8px #d6d6d6
-   
-  }
-
-.link{
-    text-decoration: none;
-    color: black;   
-    align-self: center;
-}
-
-.name{
-    display: inline;
-}
-
-.btnCard{
-    background-image: url('../../img/pngwing.com.png');
-    background-color: rgb(238, 237, 237);
+.app{
+	padding-top: 1px;
+	margin-top: -6px;
+	padding-bottom: 1px;
+    background-image: url('./img/Pin\ on\ Guardado\ rápido.jpg');
     background-position: center center;
     background-size: cover;
-    height: 45px;
-    width: 45px;
-    border: 1px solid rgb(238, 237, 237);
-    margin-left: 7px;
-    position: relative;
-    top: 30px
-    
-}
-
-.type{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-self: center;
-    margin-bottom: 6px;
-    
-}
-
-
-.type span{
-    margin: 5px;
-    height: 18px;
-    width: max-content;
-    padding: 2px;
-    border-radius: 5px;
-}
-.id{
-    align-self: flex-end;
-    background-color: rgb(238, 237, 237);
-    margin-right: 15px;
-    color: black;
 }
 
 :root{
@@ -106,7 +44,9 @@ img{
 }
 
 .grass {
-	background-color: var(--color-grass);
+	
+    height: 40px;
+    width: 40px;
 }
 
 .poison {

@@ -33,19 +33,6 @@ const getPokeHandlers = async (req, res) => {
     }
 }
 
-const getAllPokeHandlers = async (req, res) => {
-
-
-    // try {
-    //    const allPokemon = await getAllPoke();
-    
-    //     res.status(200).json(allPokemon);
-    // } catch (error) {
-    //     res.status(400).json({ error: error.message })
-    // }
-}
-
-//--------------- holaaaaaaaaa 
 const postPokeHandlers = async (req, res) => {
     try {
         const {

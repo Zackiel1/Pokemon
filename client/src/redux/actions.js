@@ -10,24 +10,6 @@ export const getPokemon = () => {
     }
 };
 
-// export const getNext = (url) => {
-//     return async function(dispatch){
-//         let data = await getAllPokes(url);
-//         data.data = data;
-
-//         dispatch({ type: GET_NEXT, payload: data})      
-//     }
-// }
-
-// export const getPrev = (url) => {
-//     return async function(dispatch){
-//         let data = await getAllPokes(url);
-//         data.data = data;
-
-//         dispatch({ type: GET_PREV, payload: data})          
-//     }
-// }
-
 export const onSearch = (name) => {
     return async function(dispatch){
         await axios.get(`http://localhost:3001/pokemons/?name=${name}`)

@@ -6,18 +6,16 @@ const inicialState = {
     pokemonOnSearch: [],
     allTypes: [],
     copyPokemonOnSearch: [],
-    //urlNextPrev: []
 }
-//// arreglar, sale que no es iterable porque en pokemon llega es un objeto
+
 const reducer = (state = inicialState, action) => {
     switch (action.type) {
         case GET_POKEMON:
-            
+
             return {
                 ...state,
                 pokemon: action.payload.data.results,
                 copyAllPokemon: action.payload.data.results,
-                //urlNextPrev: action.payload.data
             }
 
         case ON_SEARCH:
@@ -29,9 +27,9 @@ const reducer = (state = inicialState, action) => {
 
         case FILTER_TYPE:
             let copyPokemons = [...state.copyAllPokemon];
-            
+
             if (action.payload === "All types") {
-                
+
                 return {
                     ...state,
                     pokemon: [...state.copyAllPokemon]
@@ -133,22 +131,6 @@ const reducer = (state = inicialState, action) => {
                 ...state,
                 allTypes: action.payload
             }
-
-        // case GET_NEXT:
-
-        //     return {
-        //         ...state,
-        //         pokemon: action.payload.data.results,
-        //         urlNextPrev: action.payload.data
-        //     }
-
-        // case GET_PREV:
-
-        //     return {
-        //         ...state,
-        //         pokemon: action.payload.data.results,
-        //         urlNextPrev: action.payload.data
-        //     }
 
         default:
             return { ...state }

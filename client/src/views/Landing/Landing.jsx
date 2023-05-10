@@ -7,11 +7,11 @@ const Landing = () => {
     return(
         <div className={style.containerLanding}>
 
-            <h1>Pokedex</h1>
+            <h1>PokeCards</h1>
 
             <div className={style.containerLink}>
                 <Link to="/home" className={style.link}>
-                    Ingresa ahora
+                Login now
                 </Link>
             </div>
             

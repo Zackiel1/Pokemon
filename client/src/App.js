@@ -2,6 +2,7 @@ import React from 'react';
 import { Home, Landing, Form, Detail, AllPokemons } from "./views";
 import Nav from './components/Nav/Nav.jsx';
 import { Route, useLocation } from 'react-router-dom';
+import style from './App.module.css'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div>
+    <div className={style.app}>
       
       {location.pathname !== '/' && <Nav />}
 

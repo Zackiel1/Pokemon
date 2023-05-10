@@ -1,25 +1,12 @@
-.cardsContainer{
+.content{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     height: 100vh;
-    justify-content: center; 
-    background-size: cover;
-    background-position: center center;
-    background-image: url('../../img/desenfoque-lujo-abstracto-degradado-gris-oscuro-negro-utilizado-como-pared-estudio-fondo-exhibir-sus-productos_1258-63997.avif');
-}
-
-.pages{
-    margin-top: -35px;
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    height: 20px;
-    margin-left: 5px;
+    
 }
 
-.namePage{
-    margin-left: 8px;
-    color: #ff2222
+.content h2{
+    color: white;
+    margin-top: 20px;
+    text-shadow: 2px 2px 2px rgba(107,39,187);
 }

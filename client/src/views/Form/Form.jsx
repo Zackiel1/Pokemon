@@ -124,6 +124,8 @@ const Form = () => {
 
     return (
         <div className={style.divConten}> 
+
+            <h2>create your pokemon</h2>
             <form onSubmit={handlerSubmit} className={style.formConten}>
 
                 <div className={style.cadaDivForm}>

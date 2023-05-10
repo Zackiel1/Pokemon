@@ -1,30 +1,77 @@
 .divConten{
+    width: 51vw;
+    margin: auto;
     display: flex;
+    flex-direction: column;
+    
+
+    align-items: center;
     height: 100vh;
     background-size: cover;
     background-position: center center;
-    background-image: url('../../img/desenfoque-lujo-abstracto-degradado-gris-oscuro-negro-utilizado-como-pared-estudio-fondo-exhibir-sus-productos_1258-63997.avif');
 }
 
+.divConten input{
+    background-color: rgb(12,4,13);
+    color: white;
+    border: 2px inset white;
+}
+
+.divConten select{
+    background-color: rgb(12,4,13);
+    color: white;
+}
+
+.divConten select{
+    background-color: rgb(12,4,13);
+    color: white;
+    border-radius: 6px;
+    margin: 4px;
+    border: 2px inset white;
+}
+
+.divConten button{
+    background-color: rgb(12,4,13);
+    color: white;
+    border: 3.5px inset white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.divConten button:active{
+    border: 3.5px outset white;
+}
+
+
 .formConten{
-    margin-top: 10px;
+    width: 620px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    border: 7px double white;
+    
+    
 }
 
 .namesForm{
     margin-right: 10px;
     margin-left: 10px;
-    color: #ff2222;
+    color: white;
+    font-weight: bold;
+    
+
 }
 
 .warning{
-    color: #000000;
+    color: white;
     font-size: 16px;
     margin-left: 5px;
     text-shadow:
-      -.5px -.5px 0 white,
-      .5px -.5px 0 white,
-      -.5px .5px 0 white,
-      .5px .5px 0 white;
+      -.5px -.5px 0 rgba(107,39,187),
+      .5px -.5px 0 rgba(107,39,187),
+      -.5px .5px 0 rgba(107,39,187),
+      .5px .5px 0 rgba(107,39,187);
 }
 
 .cadaDivForm{

@@ -1,19 +1,22 @@
-*{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-}
-
 .containerLanding{
     display: flex;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url('../../img/Pokeball\ wallpaper.jpg');
+    background-image: url('../../img/fondoLanding.webp');
     flex-direction: column;
     align-items: center;
+    padding-bottom: 4px;
 
+}
+
+.containerLanding h1{
+    margin-top: 40px;
+    color: #3c1569;
+    height: 150px;
+    font-size: 135px;
+    text-shadow: 2px 2px 8px white
 }
 
 .link{
@@ -21,39 +24,23 @@
     list-style: none;
     height: 60px;
     font-size: 30px;
-    color: #ff2222
+    color: white
 }
 
 .containerLink{
    position: absolute;
    bottom: 100px;
    padding: 12px;
-   border: 2px solid #ff2222;
+   border: 4px inset #3c1569;
    border-radius: 15px;
-   background-color: rgb(19, 19, 19);;
 }
 
 .containerLink:hover{
     padding: 14px;
-    box-shadow: 5px 5px rgb(19, 19, 19);
+    box-shadow: 5px 5px 5px #3c1569;
+    
 }
 
-h1 {
-    font-size: 100px;
-    color: rgb(19, 19, 19);
-    text-shadow:
-      -1.5px -1.5px 0 #ff2222,
-      1.5px -1.5px 0 #ff2222,
-      -1.5px 1.5px 0 #ff2222,
-      1.5px 1.5px 0 #ff2222;
-    
-  }
-
-  h1:hover{
-    text-shadow: 
-    -2px -2px 0 #ff2222,
-    2px -2px 0 #ff2222,
-    -2px 2px 0 #ff2222,
-    2px 2px 0 #ff2222;
-    
+.containerLink:active{
+    border: 4px outset #3c1569;
 }

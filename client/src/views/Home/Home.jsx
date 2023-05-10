@@ -13,14 +13,14 @@ const Home = () => {
     let amountPoke = 12
 
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         dispatch(getPokemon())
-           
+
     }, [])
 
-    const pokemon = useSelector(state => state.pokemon) 
-    
+    const {pokemon, pokemonOnSearch} = useSelector(state => state)
+
     // useEffect(() => {
     //     setNextUrl(urlNextPrev.next)
     //     setPrevUrl(urlNextPrev.previous)
@@ -30,7 +30,7 @@ const Home = () => {
         setEnd(12)
         setCurrentPage(1)
     }
-   
+
     const handlerSelect = (evento) => {
         const target = evento.target;
         if (target.name === "Origin" && target.value) {
@@ -54,10 +54,10 @@ const Home = () => {
         }
     }
 
-    
+
     const handleNext = async () => {
         setStart(start + amountPoke)
-        setEnd(end + amountPoke) 
+        setEnd(end + amountPoke)
         setCurrentPage(currentPage + 1)
     }
 
@@ -66,14 +66,15 @@ const Home = () => {
         setEnd(end - amountPoke)
         setCurrentPage(currentPage - 1)
     }
-
+    console.log(pokemonOnSearch.length);
     return (
-        <div className={style.contenHome}>
+        <div className={style.homeConten}>
 
-            <CardsContainer />
+            {pokemonOnSearch.length === 0 ?
+               <div className={style.loading}>...Waiting for your search.</div> : <CardsContainer />}
 
-            <div className={style.contenSelect}>
-                <div className={style.filter}>
+            <div className={style.filter}>
+                <div >
                     <label>Filter By: </label>
                     <select name="Origin" onClick={handlerSelect}>
                         <option value="All Origin">All Origin</option>
@@ -104,7 +105,7 @@ const Home = () => {
                         <option value="unknown">Unknown</option>
                     </select>
                 </div>
-                <div className={style.order}>
+                <div >
                     <label>Order By: </label>
                     <select name="Name" id='name' onClick={handlerSelect}>
                         <option value="">Name</option>
@@ -118,31 +119,39 @@ const Home = () => {
                     </select>
                 </div>
 
-            </div>
-            {pokemon?.slice(start, end).map(p => {
-                return <Card
-                    key={p.id}
-                    id={p.id}
-                    image={p.image}
-                    name={p.name}
-                    type={p.type}
-                />
-            })}
+            </div >
+            
 
-            <div >
-                <button onClick={handlePrev} disabled={start===0}>
+            {pokemon.length === 0 ?
+               <div className={style.loading2}>...loading</div> : 
+            <div className={style.contenAllPoke}>
+                {pokemon?.slice(start, end).map(p => {
+                    return <Card
+                        key={p.id}
+                        id={p.id}
+                        image={p.image}
+                        name={p.name}
+                        type={p.type}
+                    />
+                })}
+            </div>
+            }
+
+
+            <div className={style.paginado}>
+                <button onClick={handlePrev} disabled={start === 0}>
                     Prev
                 </button>
 
                 <div>
-                    <p className={style.namePage}> Page {currentPage}</p>
+                    <p > Page {currentPage}</p>
                 </div>
 
                 <button onClick={handleNext} disabled={end >= pokemon.length}>
                     Next
                 </button>
             </div>
-
+            
         </div>
     )
 }

@@ -21,10 +21,6 @@ const Home = () => {
 
     const {pokemon, pokemonOnSearch} = useSelector(state => state)
 
-    // useEffect(() => {
-    //     setNextUrl(urlNextPrev.next)
-    //     setPrevUrl(urlNextPrev.previous)
-    // }, [urlNextPrev])
     const resetPages = () => {
         setStart(0)
         setEnd(12)

@@ -83,6 +83,5 @@ module.exports = {
     postPokeHandlers,
     getPokeHandlers,
     getIdHandlers,
-    getTypesHandler,
-    getAllPokeHandlers
+    getTypesHandler
 }
